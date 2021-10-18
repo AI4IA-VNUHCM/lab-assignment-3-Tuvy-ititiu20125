@@ -17,30 +17,28 @@ void Ex2(int arr[], int n)
 	int i;
 	for (i = 0; i < n; i++)
 	{
-		for (int i = 0; i < n - 1; i++)
-			for (int j = i + 1; j < n; j++)
+		for (int j = i + 1; j < n; j++)
+		{
+			if (arr[i] % 2 == 0 && arr[j] % 2 == 0)
 			{
-				if (arr[i] % 2 == 0 && arr[j] % 2 == 0)
+				if (arr[i] < arr[j])
 				{
-					if (arr[i] < arr[j])
-					{
-						int temp = arr[i];
-						arr[i] = arr[j];
-						arr[j] = temp;
-					}
-				}
-				if (arr[i] % 2 != 0 && arr[j] != 0)
-				{
-					if (arr[i] > arr[j])
-					{
-						int temp = arr[i];
-						arr[i] = arr[j];
-						arr[j] = temp;
-					}
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
 				}
 			}
-
-		printf("%d ",arr[i]);
+			if (arr[i] % 2 != 0 && arr[j] % 2 != 0)
+			{
+				if (arr[i] > arr[j])
+				{
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		printf("%d ", arr[i]);
 	}
 }
 
